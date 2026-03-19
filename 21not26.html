@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>21not26 — Birthday Weekend</title>
+<meta property="og:title" content="21not26 — Birthday Weekend">
+<meta property="og:description" content="You're invited! A weekend of maximum enjoyment & good memories. 20–23 March 2026.">
+<meta name="description" content="You're invited to 21not26 — a birthday weekend celebration. 20–23 March 2026.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #FAF8F4;
+  --bg2: #F2EFEA;
+  --bg3: #E8E4DD;
+  --text: #1A1A18;
+  --text2: #6B6962;
+  --text3: #9C9A90;
+  --border: rgba(0,0,0,0.08);
+  --accent: #C8553A;
+  --accent-soft: #F5E6E0;
+  --purple: #6B5CE7;
+  --purple-soft: #EEEDFE;
+  --teal: #1A8F6E;
+  --teal-soft: #E1F5EE;
+  --coral: #C8553A;
+  --coral-soft: #FAECE7;
+  --amber: #B07318;
+  --amber-soft: #FDF3E0;
+  --pink: #C44D73;
+  --pink-soft: #FBEAF0;
+  --blue: #2E78C2;
+  --blue-soft: #E6F1FB;
+  --green: #558B1F;
+  --green-soft: #EAF3DE;
+  --serif: 'Instrument Serif', Georgia, serif;
+  --sans: 'DM Sans', -apple-system, sans-serif;
+  --radius: 14px;
+  --radius-sm: 8px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--sans);
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+.grain {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  pointer-events: none;
+  opacity: 0.3;
+  z-index: 100;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+}
+
+.page {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 0 20px 60px;
+}
+
+/* Hero */
+.hero {
+  text-align: center;
+  padding: 56px 0 40px;
+  position: relative;
+}
+
+.hero-label {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--text3);
+  margin-bottom: 16px;
+}
+
+.hero-title {
+  font-family: var(--serif);
+  font-size: 64px;
+  font-weight: 400;
+  line-height: 1;
+  color: var(--text);
+  letter-spacing: -1.5px;
+  margin-bottom: 12px;
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards;
+}
+
+.hero-sub {
+  font-size: 15px;
+  color: var(--text2);
+  line-height: 1.6;
+  max-width: 300px;
+  margin: 0 auto;
+  opacity: 0;
+  animation: fadeUp 0.8s ease 0.15s forwards;
+}
+
+.hero-dates {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 20px;
+  padding: 8px 18px;
+  background: var(--bg2);
+  border-radius: 100px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text2);
+  opacity: 0;
+  animation: fadeUp 0.8s ease 0.3s forwards;
+}
+
+.hero-dates .dot-sep {
+  width: 4px; height: 4px;
+  border-radius: 50%;
+  background: var(--text3);
+}
+
+/* Countdown */
+.countdown-bar {
+  text-align: center;
+  padding: 16px 0 32px;
+  font-size: 13px;
+  color: var(--text3);
+  opacity: 0;
+  animation: fadeUp 0.6s ease 0.45s forwards;
+}
+
+.countdown-bar span {
+  font-weight: 600;
+  color: var(--accent);
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  gap: 4px;
+  background: var(--bg2);
+  padding: 4px;
+  border-radius: 12px;
+  margin-bottom: 28px;
+  opacity: 0;
+  animation: fadeUp 0.6s ease 0.5s forwards;
+}
+
+.tab {
+  flex: 1;
+  padding: 10px 4px;
+  text-align: center;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text2);
+  cursor: pointer;
+  transition: all 0.25s ease;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  border: none;
+  background: none;
+}
+
+.tab:hover { color: var(--text); }
+
+.tab.active {
+  background: #fff;
+  color: var(--text);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+}
+
+.tab .day-name {
+  display: block;
+  font-size: 11px;
+  color: var(--text3);
+  margin-bottom: 2px;
+  font-weight: 400;
+}
+
+.tab.active .day-name { color: var(--text2); }
+
+/* Day panels */
+.day-panel { display: none; }
+.day-panel.visible {
+  display: block;
+  animation: fadeIn 0.35s ease;
+}
+
+/* Timeline */
+.timeline { position: relative; padding-left: 24px; }
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 5px;
+  top: 20px;
+  bottom: 20px;
+  width: 1px;
+  background: var(--bg3);
+}
+
+.event {
+  position: relative;
+  margin-bottom: 14px;
+  opacity: 0;
+  animation: fadeUp 0.5s ease forwards;
+}
+
+.event:nth-child(1) { animation-delay: 0.05s; }
+.event:nth-child(2) { animation-delay: 0.12s; }
+.event:nth-child(3) { animation-delay: 0.19s; }
+.event:nth-child(4) { animation-delay: 0.26s; }
+.event:nth-child(5) { animation-delay: 0.33s; }
+
+.event:last-child { margin-bottom: 0; }
+
+.event-dot {
+  position: absolute;
+  left: -22px;
+  top: 18px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px solid var(--text3);
+  background: var(--bg);
+  z-index: 2;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+}
+
+.card-time {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--text3);
+  margin-bottom: 6px;
+}
+
+.card-title {
+  font-family: var(--serif);
+  font-size: 20px;
+  color: var(--text);
+  margin-bottom: 4px;
+  line-height: 1.2;
+}
+
+.card-desc {
+  font-size: 13px;
+  color: var(--text2);
+  line-height: 1.5;
+}
+
+.card-desc a {
+  color: var(--accent);
+  font-weight: 500;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(200,85,58,0.3);
+  transition: border-color 0.2s;
+}
+
+.card-desc a:hover { border-color: var(--accent); }
+
+.badge {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 100px;
+  margin-top: 8px;
+  letter-spacing: 0.3px;
+}
+
+.badge.food { background: var(--amber-soft); color: var(--amber); }
+.badge.party { background: var(--purple-soft); color: var(--purple); }
+.badge.chill { background: var(--teal-soft); color: var(--teal); }
+.badge.out { background: var(--coral-soft); color: var(--coral); }
+.badge.games { background: var(--pink-soft); color: var(--pink); }
+.badge.go { background: var(--blue-soft); color: var(--blue); }
+.badge.bye { background: var(--green-soft); color: var(--green); }
+
+/* Color dots per type */
+.dot-party { border-color: var(--purple) !important; background: var(--purple-soft) !important; }
+.dot-food { border-color: var(--amber) !important; background: var(--amber-soft) !important; }
+.dot-chill { border-color: var(--teal) !important; background: var(--teal-soft) !important; }
+.dot-out { border-color: var(--coral) !important; background: var(--coral-soft) !important; }
+.dot-games { border-color: var(--pink) !important; background: var(--pink-soft) !important; }
+.dot-go { border-color: var(--blue) !important; background: var(--blue-soft) !important; }
+.dot-bye { border-color: var(--green) !important; background: var(--green-soft) !important; }
+
+/* Notice */
+.notice {
+  margin-top: 32px;
+  padding: 16px 20px;
+  background: var(--amber-soft);
+  border-radius: var(--radius);
+  font-size: 13px;
+  color: var(--amber);
+  line-height: 1.6;
+  text-align: center;
+}
+
+.notice strong { font-weight: 600; }
+
+/* RSVP CTA */
+.cta {
+  display: block;
+  margin-top: 28px;
+  padding: 14px;
+  text-align: center;
+  background: var(--accent);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: var(--radius);
+  text-decoration: none;
+  transition: transform 0.2s, opacity 0.2s;
+  letter-spacing: 0.3px;
+}
+
+.cta:hover { transform: translateY(-1px); opacity: 0.92; }
+.cta:active { transform: scale(0.98); }
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 40px 0 20px;
+  font-size: 12px;
+  color: var(--text3);
+}
+
+/* Animations */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="grain"></div>
+
+<div class="page">
+
+  <div class="hero">
+    <div class="hero-label">You're invited</div>
+    <div class="hero-title">21not26</div>
+    <div class="hero-sub">A weekend of maximum enjoyment<br>& good memories</div>
+    <div class="hero-dates">
+      <span>20 Mar</span>
+      <span class="dot-sep"></span>
+      <span>23 Mar 2026</span>
+    </div>
+  </div>
+
+  <div class="countdown-bar" id="countdown"></div>
+
+  <div class="tabs" role="tablist">
+    <button class="tab active" onclick="showDay('fri',this)" role="tab" aria-selected="true">
+      <span class="day-name">Friday</span>20th
+    </button>
+    <button class="tab" onclick="showDay('sat',this)" role="tab" aria-selected="false">
+      <span class="day-name">Saturday</span>21st
+    </button>
+    <button class="tab" onclick="showDay('sun',this)" role="tab" aria-selected="false">
+      <span class="day-name">Sunday</span>22nd
+    </button>
+    <button class="tab" onclick="showDay('mon',this)" role="tab" aria-selected="false">
+      <span class="day-name">Monday</span>23rd
+    </button>
+  </div>
+
+  <!-- FRIDAY -->
+  <div id="fri" class="day-panel visible">
+    <div class="timeline">
+      <div class="event">
+        <div class="event-dot dot-chill"></div>
+        <div class="card">
+          <div class="card-time">20:00</div>
+          <div class="card-title">Welcome guests</div>
+          <div class="card-desc">Arrive, settle in, get comfortable. The weekend starts here.</div>
+          <span class="badge chill">arrival</span>
+        </div>
+      </div>
+      <div class="event">
+        <div class="event-dot dot-party"></div>
+        <div class="card">
+          <div class="card-time">22:30</div>
+          <div class="card-title">Pre-drinks</div>
+          <div class="card-desc">Get the energy right before we head out.</div>
+          <span class="badge party">vibes</span>
+        </div>
+      </div>
+      <div class="event">
+        <div class="event-dot dot-out"></div>
+        <div class="card">
+          <div class="card-time">23:45</div>
+          <div class="card-title">Leave for Coco</div>
+          <div class="card-desc">We're going out! Please <a href="https://cococure.com/plan/rAG4yEjjYVJM" target="_blank" rel="noopener">RSVP for Coco here</a> ahead of time.</div>
+          <span class="badge out">night out</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SATURDAY -->
+  <div id="sat" class="day-panel">
+    <div class="timeline">
+      <div class="event">
+        <div class="event-dot dot-food"></div>
+        <div class="card">
+          <div class="card-time">12:00</div>
+          <div class="card-title">Brunch</div>
+          <div class="card-desc">Menu: Bread & Egg</div>
+          <span class="badge food">food</span>
+        </div>
+      </div>
+      <div class="event">
+        <div class="event-dot dot-chill"></div>
+        <div class="card">
+          <div class="card-time">Afternoon</div>
+          <div class="card-title">Recovery</div>
+          <div class="card-desc">Rest up, recharge, take it easy.</div>
+          <span class="badge chill">downtime</span>
+        </div>
+      </div>
+      <div class="event">
+        <div class="event-dot dot-go"></div>
+        <div class="card">
+          <div class="card-time">18:15</div>
+          <div class="card-title">Leave for dinner</div>
+          <div class="card-desc">Get dressed up and head out.</div>
+          <span class="badge go">move</span>
+        </div>
+      </div>
+      <div class="event">
+        <div class="event-dot dot-out"></div>
+        <div class="card">
+          <div class="card-time">19:00</div>
+          <div class="card-title">Dinner</div>
+          <div class="card-desc">Birthday dinner — the main event.</div>
+          <span class="badge party">celebration</span>
+        </div>
+      </div>
+      <div class="event">
+        <div class="event-dot dot-games"></div>
+        <div class="card">
+          <div class="card-time">22:00</div>
+          <div class="card-title">Back home — Games night</div>
+          <div class="card-desc">Cards, board games, good energy.</div>
+          <span class="badge games">games</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUNDAY -->
+  <div id="sun" class="day-panel">
+    <div class="timeline">
+      <div class="event">
+        <div class="event-dot dot-food"></div>
+        <div class="card">
+          <div class="card-time">13:00</div>
+          <div class="card-title">Lunch</div>
+          <div class="card-desc">Menu: Lazy Rice x Aristo Chicken</div>
+          <span class="badge food">food</span>
+        </div>
+      </div>
+      <div class="event">
+        <div class="event-dot dot-out"></div>
+        <div class="card">
+          <div class="card-time">17:30</div>
+          <div class="card-title">Leave for Shoday</div>
+          <div class="card-desc">Closing out the weekend right.</div>
+          <span class="badge out">send-off</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MONDAY -->
+  <div id="mon" class="day-panel">
+    <div class="timeline">
+      <div class="event">
+        <div class="event-dot dot-bye"></div>
+        <div class="card">
+          <div class="card-time">10:00</div>
+          <div class="card-title">Checkout</div>
+          <div class="card-desc">Pack up, tidy the Airbnb, and say your goodbyes.</div>
+          <span class="badge bye">wrap-up</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <a class="cta" href="https://cococure.com/plan/rAG4yEjjYVJM" target="_blank" rel="noopener">
+    RSVP for Coco (Friday night)
+  </a>
+
+  <div class="notice">
+    <strong>Noise policy from 22:00</strong> — the Airbnb has a strict noise curfew, so let's keep it calm after 10pm. It's cold outside, so let's stay guided and keep the good vibes indoors.
+  </div>
+
+  <div class="footer">21not26 — made with love</div>
+
+</div>
+
+<script>
+function showDay(id, el) {
+  document.querySelectorAll('.day-panel').forEach(function(p) { p.classList.remove('visible'); });
+  document.querySelectorAll('.tab').forEach(function(t) {
+    t.classList.remove('active');
+    t.setAttribute('aria-selected', 'false');
+  });
+  document.getElementById(id).classList.add('visible');
+  el.classList.add('active');
+  el.setAttribute('aria-selected', 'true');
+
+  document.querySelectorAll('#' + id + ' .event').forEach(function(ev, i) {
+    ev.style.opacity = '0';
+    ev.style.animation = 'none';
+    ev.offsetHeight;
+    ev.style.animation = 'fadeUp 0.5s ease ' + (i * 0.07) + 's forwards';
+  });
+}
+
+function updateCountdown() {
+  var now = new Date();
+  var start = new Date('2026-03-20T20:00:00');
+  var diff = start - now;
+  var el = document.getElementById('countdown');
+  if (diff <= 0) {
+    el.innerHTML = "It's go time! <span>The weekend is here.</span>";
+    return;
+  }
+  var d = Math.floor(diff / 86400000);
+  var h = Math.floor((diff % 86400000) / 3600000);
+  var m = Math.floor((diff % 3600000) / 60000);
+  var parts = [];
+  if (d > 0) parts.push('<span>' + d + '</span> day' + (d !== 1 ? 's' : ''));
+  if (h > 0) parts.push('<span>' + h + '</span> hr' + (h !== 1 ? 's' : ''));
+  parts.push('<span>' + m + '</span> min');
+  el.innerHTML = parts.join(', ') + ' until it begins';
+}
+
+updateCountdown();
+setInterval(updateCountdown, 60000);
+</script>
+
+</body>
+</html>
